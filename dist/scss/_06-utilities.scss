@@ -1,0 +1,124 @@
+//Approach with the use of man-made variable
+//Assigns specific word{$key}
+$color:(
+"dark": $clr-dark,
+"gray": $clr-gray,
+"l-green": $clr-l-green,
+"light": $clr-light,
+"blue": $clr-blue,
+"l-light": $clr-l-light,
+"violet": $clr-violet,
+"orange": $clr-orange,
+);
+
+@each $key, $val in $color{
+  .bg{
+    &--#{$key}{
+      background: $val;
+    }
+
+  }
+
+  .text{
+    &--#{$key}{
+      color: $val;
+    }
+  }
+
+  .btn.bg--#{$key}{
+    @include btn ($val)
+  }
+}
+
+
+
+//Approach with the use of pre-installed properties
+//Without the assignment of word{$key}
+$displays: flex, block, inline-block, grid;
+@each $display in $displays {
+  .d {
+    &--#{$display} {
+      display: $display;
+    }
+  }
+}
+
+// $displays:(
+//   "flex": flex,
+//   "block": block,
+//   "grid": grid,
+// );
+// @each $key, $val, in $displays{
+//   .d{
+//     &--#{$key}{
+//       display: $val;
+//     }
+//   }
+// }
+
+$alignment:(
+  "center": center,
+  "left": left,
+  "right": right,
+  "justify": justify,
+);
+
+@each $key, $val in $alignment{
+  .text{
+    &--#{$key}{
+      text-align: $val;
+    }
+  }
+  .align{
+    &--#{$key}{
+      align-items: $val;
+    }
+  }
+}
+
+$just:(
+  "center": center,
+  "start": flex-start,
+  "end": flex-end,
+  "between": space-between,
+  "around": space-around,
+);
+@each $key, $val in $just{
+  .justify{
+  &--#{$key}{
+    justify-content: $val;
+  }
+}
+}
+
+
+
+
+@for $i from 0 through 50 {
+  .mt--#{$i} {
+    margin-top: $i + rem;
+  }
+  .mb--#{$i} {
+    margin-bottom: $i + rem;
+  }
+  .ml--#{$i} {
+    margin-left: $i + rem;
+  }
+  .mr--#{$i} {
+    margin-right: $i + rem;
+  }
+  //   .my--#{$i} {
+  //     margin: $i + rem 0rem;
+  //   }
+  //   .mx--#{$i} {
+  //     margin: 0rem $i + rem;
+  //   }
+
+  .py--#{$i}{
+    padding: $i + rem 0;
+}
+
+.px--#{$i}{
+    padding: 0 $i + rem;
+}
+}
