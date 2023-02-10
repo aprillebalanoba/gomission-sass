@@ -1675,6 +1675,11 @@ body {
 }
 
 /*PAGES*/
+h1.yes {
+  font-size: 3rem;
+  color: hsl(32deg, 72%, 51%);
+}
+
 .banner {
   background-image: url(/dist/img/banner_home_v1.jpg);
   background-position: center;
@@ -1807,7 +1812,6 @@ body {
     font-size: 3rem;
   }
   .banner__faq {
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     padding: 3rem;
